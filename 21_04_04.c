@@ -115,7 +115,7 @@ node* deletenode(node *root,int d)
 
 int main()
 {
-	node *root;
+	node *root=NULL;
 	int ch,data;
 	do
 	{
@@ -135,8 +135,8 @@ int main()
 		switch(ch)
 		{
 			case 0:
+				printf("Program terminates...\n");
 				exit(0);
-				break;
 			case 1:
 				root= create_tree(root);
 				break;
@@ -147,14 +147,23 @@ int main()
 				printf("\n%d is inserted successfully!!!\n",data);
 				break;
 			case 3:
+				if(root==NULL)
+				printf("\nTree is empty!!!\n");
+				else
 				printf("\nPreorder traversal : \n");
 				preorder(root);
 				break;
 			case 4:
+				if(root==NULL)
+				printf("\nTree is empty!!!\n");
+				else
 				printf("\nInorder traversal : \n");
 				inorder(root);
 				break;
 			case 5:
+				if(root==NULL)
+				printf("\nTree is empty!!!\n");
+				else
 				printf("\nPostorder traversal : \n");
 				postorder(root);
 				break;
