@@ -1,0 +1,1061 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Mon May 29 01:01:58 2023
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Enter user-name: sys as sysdba
+Enter password:
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+
+SQL> CREATE TABLE EMP(ECODE char(10) PRIMARY KEY, ENAME char(30), DCODE char(10), GRADE char(1), BASIC number, JN_DT DATE);
+
+Table created.
+
+SQL> INSERT INTO EMP VALUES('E1', 'Priya', 'D2', 'B', 5000, '2020-01-01'); INSERT INTO EMP VALUES('E2', 'Manish', 'D1', 'C', 5500, '2020-03-01'); INSERT INTO EMP VALUES('E3', 'Akash', 'D2', 'B', 5500, '2020-05-01'); INSERT INTO EMP VALUES('E4', 'Rachna', 'D4', 'A', 7000, '2019-04-06'); INSERT INTO EMP VALUES('E5', 'Rachna', 'D3', 'B', 7500, '2019-08-01'); INSERT INTO EMP VALUES('E6', 'Ritu', 'D4', 'C', 6000, '2019-12-05'); INSERT INTO EMP VALUES('E7', 'Aritra', 'D3', 'A',8000, '2021-02-01'); INSERT INTO EMP VALUES('E8', 'Piyush', 'D2', 'C', 7500, '2021-10-10'); INSERT INTO EMP VALUES('E9', 'Navin', 'D1', 'B', 6800, '2020-05-15'); INSERT INTO EMP VALUES('E10', 'Pritha', 'D4', 'A', 8500, '2019-06-12');
+INSERT INTO EMP VALUES('E1', 'Priya', 'D2', 'B', 5000, '2020-01-01'); INSERT INTO EMP VALUES('E2', 'Manish', 'D1', 'C', 5500, '2020-03-01'); INSERT INTO EMP VALUES('E3', 'Akash', 'D2', 'B', 5500, '2020-05-01'); INSERT INTO EMP VALUES('E4', 'Rachna', 'D4', 'A', 7000, '2019-04-06'); INSERT INTO EMP VALUES('E5', 'Rachna', 'D3', 'B', 7500, '2019-08-01'); INSERT INTO EMP VALUES('E6', 'Ritu', 'D4', 'C', 6000, '2019-12-05'); INSERT INTO EMP VALUES('E7', 'Aritra', 'D3', 'A',8000, '2021-02-01'); INSERT INTO EMP VALUES('E8', 'Piyush', 'D2', 'C', 7500, '2021-10-10'); INSERT INTO EMP VALUES('E9', 'Navin', 'D1', 'B', 6800, '2020-05-15'); INSERT INTO EMP VALUES('E10', 'Pritha', 'D4', 'A', 8500, '2019-06-12')
+                                                                    *
+ERROR at line 1:
+ORA-00911: invalid character
+
+
+SQL> INSERT INTO EMP VALUES('E1', 'Priya', 'D2', 'B', 5000, '2020-01-01');
+INSERT INTO EMP VALUES('E1', 'Priya', 'D2', 'B', 5000, '2020-01-01')
+                                                       *
+ERROR at line 1:
+ORA-01861: literal does not match format string
+
+
+SQL> INSERT INTO EMP VALUES('E1', 'Priya', 'D2', 'B', 5000, '02-JAN2020');
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES('E2', 'Manish', 'D1', 'C', 5500, '01-MAR2020');
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES('E3', 'Akash', 'D2', 'B', 5500, '01-MAY2020');
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES('E4', 'Rachna', 'D4', 'A', 7000, '06-APR2019');
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES('E5', 'Rachna', 'D3', 'B', 7500, '01-AUG2019');
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES('E6', 'Ritu', 'D4', 'C', 6000, '05-DEC2019');
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES('E7', 'Aritra', 'D3', 'A',8000, '01-FEB2021');
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES('E8', 'Piyush', 'D2', 'C', 7500, '10-OCT2021');
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES('E9', 'Navin', 'D1', 'B', 6800, '15-MAY2020');
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES('E9', 'Navin', 'D1', 'B', 6800, '15-MAY2020');
+INSERT INTO EMP VALUES('E9', 'Navin', 'D1', 'B', 6800, '15-MAY2020')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYS.SYS_C006997) violated
+
+
+SQL> INSERT INTO EMP VALUES('E10', 'Pritha', 'D4', 'A', 8500, '12-NOV2019');
+
+1 row created.
+
+SQL> COLUMN ECODE HEADING 'EMPLOYEE_CODE';
+SQL> COLUMN ENAME HEADING 'NAME';
+SQL> COLUMN DCODE HEADING 'DEPT_CODE';
+SQL> COLUMN JN_DT HEADING 'JOINING DATE';
+SQL> SELECT * FROM EMP;
+
+EMPLOYEE_C NAME                           DEPT_CODE  G      BASIC
+---------- ------------------------------ ---------- - ----------
+JOINING DATE
+------------------
+E1         Priya                          D2         B       5000
+02-JAN-20
+
+E2         Manish                         D1         C       5500
+01-MAR-20
+
+E3         Akash                          D2         B       5500
+01-MAY-20
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  G      BASIC
+---------- ------------------------------ ---------- - ----------
+JOINING DATE
+------------------
+E4         Rachna                         D4         A       7000
+06-APR-19
+
+E5         Rachna                         D3         B       7500
+01-AUG-19
+
+E6         Ritu                           D4         C       6000
+05-DEC-19
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  G      BASIC
+---------- ------------------------------ ---------- - ----------
+JOINING DATE
+------------------
+E7         Aritra                         D3         A       8000
+01-FEB-21
+
+E8         Piyush                         D2         C       7500
+10-OCT-21
+
+E9         Navin                          D1         B       6800
+15-MAY-20
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  G      BASIC
+---------- ------------------------------ ---------- - ----------
+JOINING DATE
+------------------
+E10        Pritha                         D4         A       8500
+12-NOV-19
+
+
+10 rows selected.
+
+SQL> COLUMN BASIC FORMAT '99,999';
+SQL> COLUMN GRADE FORMAT A5;
+SQL> ALTER SESSION SET NLS_DATE_FORMAT = 'MONTH DD,YYYY';
+
+Session altered.
+
+SQL>  SELECT * FROM EMP;
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JOINING DATE
+--------------------------------------------
+E1         Priya                          D2         B       5,000
+JANUARY   02,2020
+
+E2         Manish                         D1         C       5,500
+MARCH     01,2020
+
+E3         Akash                          D2         B       5,500
+MAY       01,2020
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JOINING DATE
+--------------------------------------------
+E4         Rachna                         D4         A       7,000
+APRIL     06,2019
+
+E5         Rachna                         D3         B       7,500
+AUGUST    01,2019
+
+E6         Ritu                           D4         C       6,000
+DECEMBER  05,2019
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JOINING DATE
+--------------------------------------------
+E7         Aritra                         D3         A       8,000
+FEBRUARY  01,2021
+
+E8         Piyush                         D2         C       7,500
+OCTOBER   10,2021
+
+E9         Navin                          D1         B       6,800
+MAY       15,2020
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JOINING DATE
+--------------------------------------------
+E10        Pritha                         D4         A       8,500
+NOVEMBER  12,2019
+
+
+10 rows selected.
+SQL>  COLUMN;
+COLUMN   GRADE ON
+FORMAT   A5
+
+COLUMN   BASIC ON
+FORMAT   99,999
+
+COLUMN   JN_DT ON
+HEADING  'JOINING DATE'
+
+COLUMN   DCODE ON
+HEADING  'DEPT_CODE'
+
+COLUMN   ENAME ON
+HEADING  'NAME'
+
+COLUMN   ECODE ON
+HEADING  'EMPLOYEE_CODE'
+
+COLUMN   NAME_COL_PLUS_SHOW_EDITION ON
+HEADING  'EDITION'
+FORMAT   a30
+word_wrap
+
+COLUMN   result_plus_xquery ON
+HEADING  'Result Sequence'
+
+COLUMN   other_plus_exp ON
+FORMAT   a44
+
+COLUMN   other_tag_plus_exp ON
+FORMAT   a29
+
+COLUMN   object_node_plus_exp ON
+FORMAT   a8
+
+COLUMN   plan_plus_exp ON
+FORMAT   a60
+
+COLUMN   parent_id_plus_exp ON
+HEADING  'p'
+FORMAT   990
+
+COLUMN   id_plus_exp ON
+HEADING  'i'
+FORMAT   990
+
+COLUMN   droptime_plus_show_recyc ON
+HEADING  'DROP TIME'
+FORMAT   a19
+
+COLUMN   objtype_plus_show_recyc ON
+HEADING  'OBJECT TYPE'
+FORMAT   a12
+
+COLUMN   objectname_plus_show_recyc ON
+HEADING  'RECYCLEBIN NAME'
+FORMAT   a30
+
+COLUMN   origname_plus_show_recyc ON
+HEADING  'ORIGINAL NAME'
+FORMAT   a16
+
+COLUMN   SID_COL_PLUS_SHOW_SPPARAM ON
+HEADING  'SID'
+FORMAT   a8
+word_wrap
+
+COLUMN   VALUE_COL_PLUS_SHOW_SPPARAM ON
+HEADING  'VALUE'
+FORMAT   a28
+word_wrap
+
+COLUMN   NAME_COL_PLUS_SHOW_SPPARAM ON
+HEADING  'NAME'
+FORMAT   a29
+word_wrap
+
+COLUMN   value_col_plus_show_param ON
+HEADING  'VALUE'
+FORMAT   a30
+
+COLUMN   name_col_plus_show_param ON
+HEADING  'NAME'
+FORMAT   a36
+
+COLUMN   units_col_plus_show_sga ON
+FORMAT   a15
+
+COLUMN   name_col_plus_show_sga ON
+FORMAT   a24
+
+COLUMN   ERROR ON
+FORMAT   A65
+word_wrap
+
+COLUMN   LINE/COL ON
+FORMAT   A8
+
+COLUMN   ROWLABEL ON
+FORMAT   A15
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL> COLUMN GRADE ON FORMAT A5
+SQL> COLUMN BASIC ON FORMAT 99,999
+SQL> COLUMN JN_DT ON HEADING 'JOINING DATE'
+SQL> COLUMN DCODE ON HEADING 'DEPT_CODE'
+SQL> COLUMN ENAME ON HEADING 'NAME'
+SQL> COLUMN ECODE ON HEADING 'EMPLOYEE_CODE'
+SQL> COLUMN result_plus_xquery ON HEADING 'Result Sequence'
+SQL> COLUMN other_plus_exp ON FORMAT a44
+SQL> COLUMN other_tag_plus_exp ON FORMAT a29
+SQL> COLUMN object_node_plus_exp ON FORMAT a8
+SQL> COLUMN plan_plus_exp ON FORMAT a60
+SQL> COLUMN parent_id_plus_exp ON HEADING 'p'
+SQL> FORMAT 990
+SP2-0042: unknown command "FORMAT 990" - rest of line ignored.
+SQL> COLUMN parent_id_plus_exp ON HEADING 'p' FORMAT 990
+SQL> COLUMN id_plus_exp ON HEADING 'i' FORMAT 990
+SQL> COLUMN droptime_plus_show_recyc ON HEADING 'DROP TIME' FORMAT a19
+SQL> COLUMN objtype_plus_show_recyc ON HEADING 'OBJECT TYPE' FORMAT a12
+SQL> COLUMN objectname_plus_show_recyc ON HEADING 'RECYCLEBIN NAME' FORMAT a30
+SQL> COLUMN origname_plus_show_recyc ON HEADING 'ORIGINAL NAME' FORMAT a16
+SQL> COLUMN value_col_plus_show_param ON HEADING 'VALUE' FORMAT a30
+SQL> COLUMN name_col_plus_show_param ON HEADING 'NAME' FORMAT a36
+SQL> COLUMN units_col_plus_show_sga ON FORMAT a15
+SQL> COLUMN name_col_plus_show_sga ON FORMAT a24
+SQL> COLUMN name_col_plus_show_sga ON FORMAT a24
+SQL> COLUMN ERROR ON FORMAT A65 word_wrap
+SQL> COLUMN LINE/COL ON FORMAT A8
+SQL> COLUMN ROWLABEL ON FORMAT A15
+SQL>
+SQL>
+SQL> COLUMN JN_DT;
+COLUMN   JN_DT ON
+HEADING  'JOINING DATE'
+SQL> COLUMN JN_DT ON HEADING 'JOINING DATE'
+SQL>
+SQL>
+SQL>  COLUMN JN_DT OFF;
+SQL>  SELECT * FROM EMP;
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JN_DT
+--------------------------------------------
+E1         Priya                          D2         B       5,000
+JANUARY   02,2020
+
+E2         Manish                         D1         C       5,500
+MARCH     01,2020
+
+E3         Akash                          D2         B       5,500
+MAY       01,2020
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JN_DT
+--------------------------------------------
+E4         Rachna                         D4         A       7,000
+APRIL     06,2019
+
+E5         Rachna                         D3         B       7,500
+AUGUST    01,2019
+
+E6         Ritu                           D4         C       6,000
+DECEMBER  05,2019
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JN_DT
+--------------------------------------------
+E7         Aritra                         D3         A       8,000
+FEBRUARY  01,2021
+
+E8         Piyush                         D2         C       7,500
+OCTOBER   10,2021
+
+E9         Navin                          D1         B       6,800
+MAY       15,2020
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JN_DT
+--------------------------------------------
+E10        Pritha                         D4         A       8,500
+NOVEMBER  12,2019
+
+
+10 rows selected.
+
+
+SQL> COLUMN JN_DT CLEAR;
+SQL> SELECT * FROM EMP;
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JN_DT
+--------------------------------------------
+E1         Priya                          D2         B       5,000
+JANUARY   02,2020
+
+E2         Manish                         D1         C       5,500
+MARCH     01,2020
+
+E3         Akash                          D2         B       5,500
+MAY       01,2020
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JN_DT
+--------------------------------------------
+E4         Rachna                         D4         A       7,000
+APRIL     06,2019
+
+E5         Rachna                         D3         B       7,500
+AUGUST    01,2019
+
+E6         Ritu                           D4         C       6,000
+DECEMBER  05,2019
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JN_DT
+--------------------------------------------
+E7         Aritra                         D3         A       8,000
+FEBRUARY  01,2021
+
+E8         Piyush                         D2         C       7,500
+OCTOBER   10,2021
+
+E9         Navin                          D1         B       6,800
+MAY       15,2020
+
+
+EMPLOYEE_C NAME                           DEPT_CODE  GRADE   BASIC
+---------- ------------------------------ ---------- ----- -------
+JN_DT
+--------------------------------------------
+E10        Pritha                         D4         A       8,500
+NOVEMBER  12,2019
+
+
+10 rows selected.
+
+SQL> CLEAR COLUMN;
+columns cleared
+SQL> SELECT * FROM EMP;
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E1         Priya                          D2         B       5000
+JANUARY   02,2020
+
+E2         Manish                         D1         C       5500
+MARCH     01,2020
+
+E3         Akash                          D2         B       5500
+MAY       01,2020
+
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E4         Rachna                         D4         A       7000
+APRIL     06,2019
+
+E5         Rachna                         D3         B       7500
+AUGUST    01,2019
+
+E6         Ritu                           D4         C       6000
+DECEMBER  05,2019
+
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E7         Aritra                         D3         A       8000
+FEBRUARY  01,2021
+
+E8         Piyush                         D2         C       7500
+OCTOBER   10,2021
+
+E9         Navin                          D1         B       6800
+MAY       15,2020
+
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E10        Pritha                         D4         A       8500
+NOVEMBER  12,2019
+
+
+10 rows selected.
+
+
+SQL> COLUMN;
+SP2-0045: * no COLUMN defined
+SQL>
+SQL>  BREAK ON DCODE;
+SQL> SELECT * FROM EMP ORDER BY DCODE ASC;
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E2         Manish                         D1         C       5500
+MARCH     01,2020
+
+E9         Navin                                     B       6800
+MAY       15,2020
+
+E1         Priya                          D2         B       5000
+JANUARY   02,2020
+
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E3         Akash                          D2         B       5500
+MAY       01,2020
+
+E8         Piyush                                    C       7500
+OCTOBER   10,2021
+
+E5         Rachna                         D3         B       7500
+AUGUST    01,2019
+
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E7         Aritra                         D3         A       8000
+FEBRUARY  01,2021
+
+E10        Pritha                         D4         A       8500
+NOVEMBER  12,2019
+
+E4         Rachna                                    A       7000
+APRIL     06,2019
+
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E6         Ritu                           D4         C       6000
+DECEMBER  05,2019
+
+
+10 rows selected.
+
+SQL>  BREAK ON DCODE SKIP 1;
+SQL> SELECT * FROM EMP ORDER BY DCODE ASC;
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E2         Manish                         D1         C       5500
+MARCH     01,2020
+
+E9         Navin                                     B       6800
+MAY       15,2020
+
+
+E1         Priya                          D2         B       5000
+JANUARY   02,2020
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+
+E3         Akash                          D2         B       5500
+MAY       01,2020
+
+E8         Piyush                                    C       7500
+OCTOBER   10,2021
+
+
+E5         Rachna                         D3         B       7500
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+AUGUST    01,2019
+
+E7         Aritra                         D3         A       8000
+FEBRUARY  01,2021
+
+
+E10        Pritha                         D4         A       8500
+NOVEMBER  12,2019
+
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E4         Rachna                         D4         A       7000
+APRIL     06,2019
+
+E6         Ritu                                      C       6000
+DECEMBER  05,2019
+
+
+
+10 rows selected.
+
+SQL> BREAK ON DCODE SKIP 1 ON GRADE;
+SQL>  SELECT * FROM EMP ORDER BY DCODE ASC, GRADE ASC;
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E9         Navin                          D1         B       6800
+MAY       15,2020
+
+E2         Manish                                    C       5500
+MARCH     01,2020
+
+
+E1         Priya                          D2         B       5000
+JANUARY   02,2020
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+
+E3         Akash                          D2         B       5500
+MAY       01,2020
+
+E8         Piyush                                    C       7500
+OCTOBER   10,2021
+
+
+E7         Aritra                         D3         A       8000
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+FEBRUARY  01,2021
+
+E5         Rachna                         D3         B       7500
+AUGUST    01,2019
+
+
+E10        Pritha                         D4         A       8500
+NOVEMBER  12,2019
+
+
+ECODE      ENAME                          DCODE      G      BASIC
+---------- ------------------------------ ---------- - ----------
+JN_DT
+--------------------------------------------
+E4         Rachna                         D4         A       7000
+APRIL     06,2019
+
+E6         Ritu                                      C       6000
+DECEMBER  05,2019
+
+
+
+10 rows selected.
+
+
+SQL>  COLUMN GRADE FORMAT A20;
+SQL>  BREAK ON DCODE SKIP 1 ON GRADE SKIP 1;
+SQL>  COMPUTE AVG LABEL 'AVG BASIC ON GRADE' OF BASIC ON GRADE;
+SQL>  SELECT * FROM EMP ORDER BY DCODE ASC, GRADE ASC;
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+E9         Navin                          D1         B
+      6800 15-MAY-20
+
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      6800
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+E2         Manish                         D1         C
+      5500 01-MAR-20
+
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      5500
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+
+
+E1         Priya                          D2         B
+      5000 02-JAN-20
+
+E3         Akash
+      5500 01-MAY-20
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      5250
+
+
+E8         Piyush                         D2         C
+      7500 10-OCT-21
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      7500
+
+
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+E7         Aritra                         D3         A
+      8000 01-FEB-21
+
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      8000
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+E5         Rachna                         D3         B
+      7500 01-AUG-19
+
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      7500
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+
+
+E10        Pritha                         D4         A
+      8500 12-NOV-19
+
+E4         Rachna
+      7000 06-APR-19
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      7750
+
+
+E6         Ritu                           D4         C
+      6000 05-DEC-19
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      6000
+
+
+
+
+10 rows selected.
+
+
+
+SQL>  BREAK ON REPORT SKIP 3 ON DCODE SKIP 3 ON GRADE SKIP 1;
+SQL> COMPUTE AVG LABEL 'AVG BASIC ON GRADE' OF BASIC ON GRADE;
+SQL> COMPUTE AVG LABEL "AVG BASIC ON DEPT" SUM LABEL "TOTAL BASIC ON DEPT" OF BASIC ON DCODE;
+SQL> COMPUTE AVG LABEL "AVG BASIC" SUM LABEL "TOTAL BASIC" OF BASIC ON REPORT;
+SQL> SELECT * FROM EMP ORDER BY DCODE ASC, GRADE ASC;
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+E9         Navin                          D1         B
+      6800 15-MAY-20
+
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      6800
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+E2         Manish                         D1         C
+      5500 01-MAR-20
+
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      5500
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+
+                                          **********
+----------
+
+                                          AVG BASIC
+      6150
+
+                                          TOTAL BASI
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+     12300
+
+
+
+
+E1         Priya                          D2         B
+      5000 02-JAN-20
+
+E3         Akash
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+      5500 01-MAY-20
+
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      5250
+
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+E8         Piyush                         D2         C
+      7500 10-OCT-21
+
+                                                     ********************
+----------
+
+                                                     AVG BASIC ON GRADE
+      7500
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+                                          **********
+----------
+
+                                          AVG BASIC
+      6000
+
+                                          TOTAL BASI
+     18000
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+
+
+
+E7         Aritra                         D3         A
+      8000 01-FEB-21
+
+                                                     ********************
+----------
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+                                                     AVG BASIC ON GRADE
+      8000
+
+
+E5         Rachna                         D3         B
+      7500 01-AUG-19
+
+                                                     ********************
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+----------
+
+                                                     AVG BASIC ON GRADE
+      7500
+
+
+                                          **********
+----------
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+                                          AVG BASIC
+      7750
+
+                                          TOTAL BASI
+     15500
+
+
+
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+E10        Pritha                         D4         A
+      8500 12-NOV-19
+
+E4         Rachna
+      7000 06-APR-19
+
+                                                     ********************
+----------
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+                                                     AVG BASIC ON GRADE
+      7750
+
+
+E6         Ritu                           D4         C
+      6000 05-DEC-19
+
+                                                     ********************
+----------
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+
+                                                     AVG BASIC ON GRADE
+      6000
+
+
+                                          **********
+----------
+
+                                          AVG BASIC
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+7166.66667
+
+                                          TOTAL BASI
+     21500
+
+
+
+
+
+
+ECODE      ENAME                          DCODE      GRADE
+---------- ------------------------------ ---------- --------------------
+     BASIC JN_DT
+---------- ------------------
+----------
+
+AVG BASIC
+      6730
+
+TOTAL BASI
+     67300
+
+
+
+
+10 rows selected.
